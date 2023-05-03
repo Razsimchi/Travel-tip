@@ -25,6 +25,7 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 const lng = event.latLng.lng()
                 panTo(lat, lng)
                 addMarker({ lat, lng })
+                console.log(lat,lng);
             })
         })
 }

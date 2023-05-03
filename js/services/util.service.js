@@ -2,8 +2,7 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     _makeId,
-    getDate,
-
+    getDate
 }
 function getDate(){
     return date=new Date().toLocaleString()
@@ -25,4 +24,7 @@ function _makeId(length = 5) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     return txt
+}
+function getDate(){
+    return new Date().toLocaleString()
 }

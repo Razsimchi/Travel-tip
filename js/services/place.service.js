@@ -1,3 +1,5 @@
+import { utilService } from "./async-storage.service";
+
 const PLACES_KEY='placesDB'
 
 _createPlaces()
@@ -5,20 +7,22 @@ _createPlaces()
 function _createPlaces(){
     let places = utilService.loadFromStorage(PLACES_KEY)
     if (!places || !places.length) {
-        // _createDemoPlaces()
-
+        _createPlace()
     }
+    return places
 }
 
-function _createPlace(name) {
+function _createPlace(name,lat,lng) {
     const place={}
     place.id = utilService.makeId()
     place.name = name
     place.lat = lat
     place.lng = lng
-    place.createdAt = created
+    place.createdAt = utilService.getDate()
     return place
 }
+
+
 
 // function _createDemoPlaces() {
 //     const petNames = ['Bobi', 'Charli', 'Pinchi']

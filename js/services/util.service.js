@@ -2,7 +2,11 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     _makeId,
+    getDate,
 
+}
+function getDate(){
+    return date=new Date().toLocaleString()
 }
 
 function saveToStorage(key, value) {

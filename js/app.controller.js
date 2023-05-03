@@ -51,3 +51,18 @@ function onPanTo() {
     console.log('Panning the Map')
     mapService.panTo(35.6895, 139.6917)
 }
+
+function renderLocations() {
+    const places = locService.getLocs()
+    let strHtml = ``
+    places.map(place => {
+        strHtml += `<card>
+        <h3>${place.name}</h3>
+        <p>lat:${place.lat} lng:${place.lng}</p>
+        <p>created At:${place.createdAt}</p>
+        </card>`
+    })
+    const elLocations = document.querySelector('.locs')
+    elLocations.innerHTML = strHtml
+
+}

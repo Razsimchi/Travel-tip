@@ -1,3 +1,4 @@
+
 export const mapService = {
     initMap,
     addMarker,
@@ -19,6 +20,12 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 zoom: 15
             })
             console.log('Map!', gMap)
+            gMap.addListener('click', (event) => {
+                const lat = event.latLng.lat()
+                const lng = event.latLng.lng()
+                panTo(lat, lng)
+                addMarker({ lat, lng })
+            })
         })
 }
 
@@ -39,7 +46,7 @@ function panTo(lat, lng) {
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = '' //TODO: Enter your API Key
+    const API_KEY = 'AIzaSyAcb3_MFaA9qbinkXKcGioci_rAZsAjJAw' //TODO: Enter your API Key
     var elGoogleApi = document.createElement('script')
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`
     elGoogleApi.async = true
